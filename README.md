@@ -28,9 +28,21 @@ Game theory course project (Master 1, 2025-2026), done with Mohamed Ali Damergi.
   bot spots it and beats it 1000 games to 0.
 - A single extra stone (15 vs 14) moves the value from 0 to +0.53.
 
-Details, tables and plots are in [docs/report.md](docs/report.md).
+![Result with perfect play on a 7-square path](docs/value_vs_stones_7.png)
 
-![value vs stones](docs/value_vs_stones_7.png)
+How to read it: each point is the expected result for player 1 when both
+players play as well as possible.
+
+- **Solid lines:** players are allowed to randomise their throws, which is the
+  true optimum.
+- **Dashed lines:** players always pick the same "safe" move.
+
+With the troll in the middle (green), the game is a fair draw. From 9 stones on,
+though, the predictable player can always be beaten. With the troll one square
+closer to player 1 (red), player 1 is lost when stones are scarce. With more
+stones they get chances back, but only by playing randomly.
+
+Details, tables and plots are in [docs/report.md](docs/report.md).
 
 ## Run it
 

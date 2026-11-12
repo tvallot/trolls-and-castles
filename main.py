@@ -81,21 +81,35 @@ def cmd_curve(args):
     import matplotlib.pyplot as plt
 
     n = args.max_stones
-    starts = sorted({(args.cells - 1) // 2, (args.cells - 1) // 2 - 1})
-    fig, ax = plt.subplots(figsize=(7, 4))
-    for start in starts:
+    middle = (args.cells - 1) // 2
+    xs = list(range(1, n + 1))
+    fig, ax = plt.subplots(figsize=(8, 4.5))
+    cases = [(middle, "troll in the middle", "tab:green"),
+             (middle - 1, "troll one square closer to P1", "tab:red")]
+    for start, where, colour in cases:
         solver = Solver(Game(args.cells, n, n, start))
-        xs = range(1, n + 1)
-        ax.plot(xs, [solver.value[start, k, k] for k in xs], marker="o", ms=3,
-                label=f"troll on square {start}, game value")
-        ax.plot(xs, [solver.lower[start, k, k] for k in xs], ls="--",
-                label=f"troll on square {start}, P1 prudent value")
+        mixed = [solver.value[start, k, k] for k in xs]
+        pure = [solver.lower[start, k, k] for k in xs]
+        # Dashed line drawn wide and underneath so it stays visible when the
+        # two curves overlap.
+        ax.plot(xs, pure, ls="--", lw=3, color=colour, alpha=0.4,
+                label=f"{where}, predictable play")
+        ax.plot(xs, mixed, lw=2, marker="o", ms=3, color=colour,
+                label=f"{where}, best random play")
+        if start == middle:
+            drop = next((k for k, p, m in zip(xs, pure, mixed) if p < m - 1e-9), None)
+            if drop:
+                ax.annotate(f"from {drop} stones on,\npredictable play can be beaten",
+                            xy=(drop, -1), xytext=(drop + 1.5, -0.45), fontsize=9,
+                            arrowprops=dict(arrowstyle="->", color="0.3"))
     ax.set_xlabel("stones per player")
-    ax.set_ylabel("value for P1 (+1 win, -1 loss)")
-    ax.set_title(f"{args.cells}-square path")
-    ax.set_ylim(-1.1, 1.1)
+    ax.set_ylabel("expected result for player 1")
+    ax.set_yticks([-1, -0.5, 0, 0.5, 1],
+                  ["P1 loses", "-0.5", "draw", "+0.5", "P1 wins"])
+    ax.set_title(f"Result with perfect play on a {args.cells}-square path")
+    ax.set_ylim(-1.15, 1.15)
     ax.grid(alpha=0.3)
-    ax.legend(fontsize=8)
+    ax.legend(fontsize=8, loc="upper left")
     fig.tight_layout()
     fig.savefig(args.out, dpi=150)
     print(f"saved {args.out}")

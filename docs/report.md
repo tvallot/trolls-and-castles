@@ -76,6 +76,11 @@ This version solves the full recursion with mixed values.
 ![value vs stones, 7 squares](value_vs_stones_7.png)
 ![value vs stones, 15 squares](value_vs_stones_15.png)
 
+*Expected result for P1 under optimal play, as a function of the number of
+stones per player. Solid lines show the game value (mixed strategies). Dashed
+lines show what P1 can guarantee with deterministic play (`lower`). Green
+curves start the troll in the middle, red curves one square closer to P1.*
+
 - **Moving the troll one square** towards P1 loses the game for P1 when stones
   are scarce. With more stones, P1 gets real chances back by randomising: on
   7 squares the value rises from -1 to about -0.75 at 30 stones. In pure
