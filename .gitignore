@@ -1,0 +1,15 @@
+__pycache__/
+*.pyc
+.venv/
+.pytest_cache/
+*.png
+!docs/*.png
+
+# local tool folders
+.claude/
+.codex/
+.cursor/
+.vscode/
+.idea/
+CLAUDE.md
+AGENTS.md
