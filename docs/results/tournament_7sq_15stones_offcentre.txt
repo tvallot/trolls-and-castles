@@ -1,0 +1,32 @@
+7 squares, troll on square 2, stones P1=15 P2=15 | 1000 games per match
+  prudent vs prudent   | P1 wins    0 | P2 wins 1000 | draws    0
+  prudent vs nash      | P1 wins    0 | P2 wins 1000 | draws    0
+  prudent vs one       | P1 wins    0 | P2 wins 1000 | draws    0
+  prudent vs random    | P1 wins  501 | P2 wins  499 | draws    0
+  prudent vs adaptive  | P1 wins    0 | P2 wins 1000 | draws    0
+     nash vs prudent   | P1 wins    0 | P2 wins  878 | draws  122
+     nash vs nash      | P1 wins   29 | P2 wins  911 | draws   60
+     nash vs one       | P1 wins   72 | P2 wins  928 | draws    0
+     nash vs random    | P1 wins  730 | P2 wins  244 | draws   26
+     nash vs adaptive  | P1 wins  145 | P2 wins  763 | draws   92
+      one vs prudent   | P1 wins    0 | P2 wins 1000 | draws    0
+      one vs nash      | P1 wins    0 | P2 wins 1000 | draws    0
+      one vs one       | P1 wins    0 | P2 wins 1000 | draws    0
+      one vs random    | P1 wins  185 | P2 wins  815 | draws    0
+      one vs adaptive  | P1 wins    0 | P2 wins 1000 | draws    0
+   random vs prudent   | P1 wins    0 | P2 wins 1000 | draws    0
+   random vs nash      | P1 wins    0 | P2 wins  999 | draws    1
+   random vs one       | P1 wins   89 | P2 wins  911 | draws    0
+   random vs random    | P1 wins  238 | P2 wins  658 | draws  104
+   random vs adaptive  | P1 wins  119 | P2 wins  760 | draws  121
+ adaptive vs prudent   | P1 wins    0 | P2 wins 1000 | draws    0
+ adaptive vs nash      | P1 wins   22 | P2 wins  944 | draws   34
+ adaptive vs one       | P1 wins 1000 | P2 wins    0 | draws    0
+ adaptive vs random    | P1 wins  258 | P2 wins  566 | draws  176
+ adaptive vs adaptive  | P1 wins    0 | P2 wins 1000 | draws    0
+Standings (both seats, self-play excluded):
+  prudent    15 pts
+  nash       15 pts
+  adaptive   15 pts
+  one         9 pts
+  random      6 pts
